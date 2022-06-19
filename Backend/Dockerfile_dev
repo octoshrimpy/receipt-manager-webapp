@@ -8,6 +8,7 @@ WORKDIR /app
 ENV RUN_IN_DOCKER Yes
 
 # copy the dependencies file to the working directory
+#RUN echo $'flask==2.1.2\nPyYAML==6.0\ngevent==21.12.0\nFlask-Cors==3.0.10\npyodbc==4.0.32\nrequests==2.27.1\nuuid==1.30\nmysql-connector-python==8.0.27\ncryptography==37.0.1\npycryptodome==3.11.0\nWand==0.6.7' > requirements.txt
 COPY requirements.txt .
 
 # install odbc driver
