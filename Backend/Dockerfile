@@ -11,6 +11,10 @@ ENV RUN_IN_DOCKER Yes
 # RUN echo $'flask==2.1.2\nPyYAML==6.0\ngevent==21.12.0\nFlask-Cors==3.0.10\npyodbc==4.0.32\nrequests==2.27.1\nuuid==1.30\nmysql-connector-python==8.0.27\ncryptography==37.0.1\npycryptodome==3.11.0\nWand==0.6.7' > requirements.txt
 COPY requirements.txt .
 
+# patch for missing dependencies
+RUN wget http://archive.ubuntu.com/ubuntu/pool/main/g/glibc/multiarch-support_2.27-3ubuntu1.6_amd64.deb
+RUN dpkg -i multiarch-support_2.27-3ubuntu1.6_amd64.deb
+
 # install odbc driver
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
     curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list
