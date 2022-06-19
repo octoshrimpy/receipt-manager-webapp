@@ -95,11 +95,10 @@ function loadPageData(t, origin)
 function loadTranslations() {
   let xhr = new XMLHttpRequest();
 
-  if (language == 'en-US' || !language)
+  if (language == 'en-US' || language == 'en-GB' || !language)
   {
     xhr.open("GET", "./lang/en.json");
-  }
-  
+  } else
   if (language == 'de-DE')
   {
     xhr.open("GET", "./lang/de.json");
